@@ -16,7 +16,7 @@ $misVentas = $misVentas ?? [];
     <div class="mb-5">
 
         <span class="badge rounded-pill text-bg-light border px-3 py-2">
-            💼 Mi actividad
+            <i class="bi bi-briefcase ub-icon" aria-hidden="true"></i> Mi actividad
         </span>
 
         <h1 class="fw-bold mt-3 mb-2">
@@ -44,7 +44,7 @@ $misVentas = $misVentas ?? [];
                     font-size:36px;
                 "
             >
-                💼
+                <i class="bi bi-briefcase ub-icon" aria-hidden="true"></i>
             </div>
 
             <h3 class="fw-bold">
@@ -254,7 +254,7 @@ $misVentas = $misVentas ?? [];
                                     <div class="small text-muted">
 
                                         <div class="mb-2">
-                                            👤
+                                            <i class="bi bi-person-circle ub-icon" aria-hidden="true"></i>
                                             <strong>Comprador:</strong>
 
                                             <?= htmlspecialchars(
@@ -268,7 +268,7 @@ $misVentas = $misVentas ?? [];
 
 
                                         <div class="mb-2">
-                                            💳
+                                            <i class="bi bi-credit-card ub-icon" aria-hidden="true"></i>
                                             <strong>Pago:</strong>
 
                                             <?= htmlspecialchars($metodo) ?>
@@ -276,7 +276,7 @@ $misVentas = $misVentas ?? [];
 
 
                                         <div>
-                                            📅
+                                            <i class="bi bi-calendar-event ub-icon" aria-hidden="true"></i>
                                             <strong>Fecha:</strong>
 
                                             <?= !empty($venta['fecha_compra'])

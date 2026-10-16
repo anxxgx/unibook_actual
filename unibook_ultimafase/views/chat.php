@@ -316,7 +316,7 @@ $imagenLibro =
 
             <div class="chat-avatar">
 
-                👤
+                <i class="bi bi-person-circle ub-icon" aria-hidden="true"></i>
 
             </div>
 
@@ -331,7 +331,7 @@ $imagenLibro =
 
                 <div class="chat-header-book">
 
-                    💬 Conversación sobre:
+                    <i class="bi bi-chat-dots ub-icon" aria-hidden="true"></i> Conversación sobre:
                     <?= htmlspecialchars($tituloLibro) ?>
 
                 </div>
@@ -356,7 +356,7 @@ $imagenLibro =
                     <div class="chat-empty-inner">
 
                         <div class="chat-empty-icon">
-                            💬
+                            <i class="bi bi-chat-dots ub-icon" aria-hidden="true"></i>
                         </div>
 
                         <h5>
@@ -501,7 +501,7 @@ $imagenLibro =
 
                 <?php else: ?>
 
-                    📚
+                    <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i>
 
                 <?php endif; ?>
 

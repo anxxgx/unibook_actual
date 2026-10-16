@@ -39,7 +39,7 @@ include "views/partials/navbar.php";
             <div class="historia-empty">
 
                 <div class="historia-empty__icon">
-                    📚
+                    <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i>
                 </div>
 
                 <h5>
@@ -113,7 +113,7 @@ include "views/partials/navbar.php";
                                 <?php } else { ?>
 
                                     <div class="history-book__no-image">
-                                        <span>📚</span>
+                                        <span><i class="bi bi-book ub-icon" aria-hidden="true"></i></span>
                                         <small>
                                             Sin portada
                                         </small>

@@ -68,7 +68,7 @@
 
             <div class="col-md-4 reveal">
                 <div class="stat-card">
-                    <div class="num">🎓</div>
+                    <div class="num"><i class="bi bi-mortarboard ub-icon" aria-hidden="true"></i></div>
                     <h5 class="mt-2 mb-2 fw-bold">Filtra por carrera</h5>
                     <p class="text-muted mb-0" style="font-size:14.5px;">
                         Encuentra libros exactos para tu universidad, carrera y semestre.
@@ -78,7 +78,7 @@
 
             <div class="col-md-4 reveal">
                 <div class="stat-card">
-                    <div class="num">🔒</div>
+                    <div class="num"><i class="bi bi-shield-lock ub-icon" aria-hidden="true"></i></div>
                     <h5 class="mt-2 mb-2 fw-bold">Correo institucional</h5>
                     <p class="text-muted mb-0" style="font-size:14.5px;">
                         Solo estudiantes verificados. Más confianza, cero estafas.
@@ -88,7 +88,7 @@
 
             <div class="col-md-4 reveal">
                 <div class="stat-card">
-                    <div class="num">📦</div>
+                    <div class="num"><i class="bi bi-box-seam ub-icon" aria-hidden="true"></i></div>
                     <h5 class="mt-2 mb-2 fw-bold">Venta o intercambio</h5>
                     <p class="text-muted mb-0" style="font-size:14.5px;">
                         Elige cómo quieres tus libros: comprarlos o intercambiarlos.

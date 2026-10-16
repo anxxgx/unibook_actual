@@ -255,7 +255,7 @@ class CompraController
 
 
         /*
-         * 🔔 NOTIFICACIÓN AL VENDEDOR
+         * NOTIFICACIÓN AL VENDEDOR
          *
          * La compra quedó registrada y
          * está esperando su confirmación.
@@ -375,7 +375,7 @@ class CompraController
         }
 
         /*
-         * 🔔 NOTIFICACIÓN AL COMPRADOR
+         * NOTIFICACIÓN AL COMPRADOR
          *
          * El vendedor aceptó la operación.
          */
@@ -481,7 +481,7 @@ class CompraController
         }
 
         /*
-         * 🔔 NOTIFICACIÓN AL COMPRADOR
+         * NOTIFICACIÓN AL COMPRADOR
          *
          * El vendedor rechazó la operación.
          */

@@ -11,7 +11,7 @@ if (isset($_SESSION['id_usuario'])) {
     <nav class="navbar ub-nav">
         <div class="container justify-content-between">
             <a class="navbar-brand" href="index.php">
-                <span class="mark">📚</span> UniBook
+                <span class="mark"><i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i></span> UniBook
             </a>
 
             <a
@@ -43,7 +43,7 @@ $vendedor = $vendedor ?? null;
                 style="max-width:520px; margin:0 auto;">
 
                 <div class="catalog-empty__icon">
-                    📕
+                    <i class="bi bi-book ub-icon" aria-hidden="true"></i>
                 </div>
 
                 <h5 class="fw-bold mb-1">
@@ -195,7 +195,7 @@ $vendedor = $vendedor ?? null;
                         class="ub-alert ub-alert-danger reveal"
                         style="max-width:600px;">
 
-                        ⚠️
+                        <i class="bi bi-exclamation-triangle ub-icon" aria-hidden="true"></i>
 
                         <?php
                         echo htmlspecialchars(
@@ -241,7 +241,7 @@ $vendedor = $vendedor ?? null;
                         class="ub-alert ub-alert-danger reveal"
                         style="max-width:650px;">
 
-                        ⚠️
+                        <i class="bi bi-exclamation-triangle ub-icon" aria-hidden="true"></i>
 
                         <?php
                         echo htmlspecialchars(
@@ -341,7 +341,7 @@ $vendedor = $vendedor ?? null;
 
                         <p class="book-detail__author">
 
-                            👨
+                            <i class="bi bi-person ub-icon" aria-hidden="true"></i>
 
                             <?php
                             echo htmlspecialchars(
@@ -442,7 +442,7 @@ $vendedor = $vendedor ?? null;
                                     <a
                                         href="index.php?accion=login"
                                         class="btn-ub btn-ub-outline btn-ub-block">
-                                        🔄 Inicia sesión para solicitar intercambio
+                                        <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i> Inicia sesión para solicitar intercambio
                                     </a>
 
                                 <?php } ?>
@@ -461,7 +461,7 @@ $vendedor = $vendedor ?? null;
                                     <p
                                         class="text-muted mb-0"
                                         style="font-size:14px;">
-                                        📌 Esta es tu publicación.
+                                        <i class="bi bi-pin-angle ub-icon" aria-hidden="true"></i> Esta es tu publicación.
                                     </p>
 
                                 <?php } elseif (
@@ -471,7 +471,7 @@ $vendedor = $vendedor ?? null;
                                     <p
                                         class="text-muted mb-0"
                                         style="font-size:14px;">
-                                        📌 Esta es tu publicación de intercambio.
+                                        <i class="bi bi-pin-angle ub-icon" aria-hidden="true"></i> Esta es tu publicación de intercambio.
                                     </p>
 
                                 <?php } ?>
@@ -495,7 +495,7 @@ $vendedor = $vendedor ?? null;
                                                                             echo (int)$libro['id'];
                                                                             ?>"
                                         class="btn-ub btn-ub-gold btn-ub-block">
-                                        🛒 Comprar libro
+                                        <i class="bi bi-cart-plus ub-icon" aria-hidden="true"></i> Comprar libro
                                     </a>
 
                                 <?php } elseif (
@@ -526,7 +526,7 @@ $vendedor = $vendedor ?? null;
                                                                                         echo (int)$libro['id'];
                                                                                         ?>"
                                         class="btn-ub btn-ub-outline btn-ub-block">
-                                        🔄 Solicitar intercambio
+                                        <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i> Solicitar intercambio
                                     </a>
 
                                     <p
@@ -670,7 +670,7 @@ $vendedor = $vendedor ?? null;
                             class="seller-card reveal reveal-d3">
 
                             <div class="seller-card__avatar">
-                                👤
+                                <i class="bi bi-person-circle ub-icon" aria-hidden="true"></i>
                             </div>
 
 
@@ -706,7 +706,7 @@ $vendedor = $vendedor ?? null;
                                 <a
                                     href="index.php?accion=chat&id=<?php echo (int)$libro['id']; ?>"
                                     class="btn-ub btn-ub-outline btn-ub-sm seller-card__cta">
-                                    💬 Contactar
+                                    <i class="bi bi-chat-dots ub-icon" aria-hidden="true"></i> Contactar
                                 </a>
 
                             <?php } ?>
@@ -739,7 +739,7 @@ $vendedor = $vendedor ?? null;
                                 ">
 
                                 <strong>
-                                    🔄 ¿Te interesa este intercambio?
+                                    <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i> ¿Te interesa este intercambio?
                                 </strong>
 
                                 <p

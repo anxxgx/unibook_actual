@@ -24,7 +24,7 @@ if(!isset($_SESSION['id_usuario'])){
             <span class="ub-eyebrow on-dark">Tu espacio</span>
 
             <h2 class="mt-2 mb-2" style="color:var(--text-paper); font-size:30px;">
-                Hola, <?php echo htmlspecialchars($_SESSION['nombre']); ?> 👋
+                Hola, <?php echo htmlspecialchars($_SESSION['nombre']); ?> <i class="bi bi-hand-index-thumb ub-icon" aria-hidden="true"></i>
             </h2>
 
             <p class="mb-0" style="color:var(--text-paper-muted);">
@@ -37,7 +37,7 @@ if(!isset($_SESSION['id_usuario'])){
 
             <div class="col-md-4 reveal">
                 <div class="ub-card ub-card-hover text-center p-4 h-100">
-                    <div style="font-size:38px;">📚</div>
+                    <div style="font-size:38px;"><i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i></div>
                     <h5 class="fw-bold mt-2 mb-2">Explorar libros</h5>
                     <p class="text-muted mb-4" style="font-size:14.5px;">
                         Descubre publicaciones de otros estudiantes.
@@ -50,7 +50,7 @@ if(!isset($_SESSION['id_usuario'])){
 
             <div class="col-md-4 reveal">
                 <div class="ub-card ub-card-hover text-center p-4 h-100">
-                    <div style="font-size:38px;">➕</div>
+                    <div style="font-size:38px;"><i class="bi bi-plus-circle ub-icon" aria-hidden="true"></i></div>
                     <h5 class="fw-bold mt-2 mb-2">Publicar libro</h5>
                     <p class="text-muted mb-4" style="font-size:14.5px;">
                         Comparte material con la comunidad.
@@ -63,7 +63,7 @@ if(!isset($_SESSION['id_usuario'])){
 
             <div class="col-md-4 reveal">
                 <div class="ub-card ub-card-hover text-center p-4 h-100">
-                    <div style="font-size:38px;">👤</div>
+                    <div style="font-size:38px;"><i class="bi bi-person-circle ub-icon" aria-hidden="true"></i></div>
                     <h5 class="fw-bold mt-2 mb-2">Mi perfil</h5>
                     <p class="text-muted mb-4" style="font-size:14.5px;">
                         Revisa y administra tus publicaciones.

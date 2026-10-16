@@ -29,7 +29,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
 
         <a class="navbar-brand" href="index.php?accion=dashboard">
 
-            <span class="mark">📚</span> UniBook
+            <span class="mark"><i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i></span> UniBook
 
         </a>
 
@@ -55,7 +55,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         href="index.php?accion=catalogo"
                     >
 
-                        📚 Catálogo
+                        <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i> Catálogo
 
                     </a>
 
@@ -71,7 +71,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         href="index.php?accion=historia"
                     >
 
-                        📖 Historia
+                        <i class="bi bi-clock-history ub-icon" aria-hidden="true"></i> Historia
 
                     </a>
 
@@ -85,7 +85,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         href="index.php?accion=publicar_libro"
                     >
 
-                        ➕ Publicar
+                        <i class="bi bi-plus-circle ub-icon" aria-hidden="true"></i> Publicar
 
                     </a>
 
@@ -99,7 +99,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         href="index.php?accion=mis_compras"
                     >
 
-                        🛒 Mis compras
+                        <i class="bi bi-bag-check ub-icon" aria-hidden="true"></i> Mis compras
 
                     </a>
 
@@ -113,7 +113,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         href="index.php?accion=mis_ventas"
                     >
 
-                        💰 Mis ventas
+                        <i class="bi bi-cash-stack ub-icon" aria-hidden="true"></i> Mis ventas
 
                     </a>
 
@@ -129,7 +129,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         data-bs-toggle="dropdown"
                     >
 
-                        🔄 Intercambios
+                        <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i> Intercambios
 
                     </a>
 
@@ -175,7 +175,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         href="index.php?accion=mensajes"
                     >
 
-                        💬 Mensajes
+                        <i class="bi bi-chat-dots ub-icon" aria-hidden="true"></i> Mensajes
 
                     </a>
 
@@ -191,7 +191,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         href="index.php?accion=notificaciones"
                     >
 
-                        🔔 Notificaciones
+                        <i class="bi bi-bell ub-icon" aria-hidden="true"></i> Notificaciones
 
                         <?php if ($notificacionesNoLeidasNavbar > 0): ?>
 
@@ -233,7 +233,7 @@ if (isset($notificacionController) && isset($_SESSION['id_usuario'])) {
                         href="index.php?accion=perfil"
                     >
 
-                        👤 Mi perfil
+                        <i class="bi bi-person-circle ub-icon" aria-hidden="true"></i> Mi perfil
 
                     </a>
 

@@ -243,7 +243,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
                 <div>
 
                     <div style="font-size: 30px; margin-bottom: 8px;">
-                        🔄
+                        <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i>
                     </div>
 
                     <h1 class="fw-bold">
@@ -263,7 +263,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
                     class="btn btn-light fw-semibold px-4 py-2"
                     style="border-radius: 12px;"
                 >
-                    📚 Ver catálogo
+                    <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i> Ver catálogo
                 </a>
 
             </div>
@@ -279,7 +279,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
 
             <div class="alert alert-success mensaje-alerta">
 
-                <strong>✅ ¡Intercambio aceptado!</strong>
+                <strong><i class="bi bi-check-circle-fill ub-icon" aria-hidden="true"></i> ¡Intercambio aceptado!</strong>
 
                 <br>
 
@@ -303,7 +303,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
 
             <div class="alert alert-danger mensaje-alerta">
 
-                <strong>❌ No se pudo procesar la solicitud.</strong>
+                <strong><i class="bi bi-x-circle-fill ub-icon" aria-hidden="true"></i> No se pudo procesar la solicitud.</strong>
 
                 <br>
 
@@ -315,7 +315,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
 
             <div class="alert alert-success mensaje-alerta">
 
-                <strong>✅ Solicitud enviada correctamente.</strong>
+                <strong><i class="bi bi-check-circle-fill ub-icon" aria-hidden="true"></i> Solicitud enviada correctamente.</strong>
 
             </div>
 
@@ -332,7 +332,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
             <div class="sin-solicitudes">
 
                 <div class="sin-solicitudes-icono">
-                    📚
+                    <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i>
                 </div>
 
                 <h3 class="fw-bold mb-2">
@@ -400,7 +400,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
                                     <div class="d-flex align-items-center gap-3">
 
                                         <div class="usuario-avatar">
-                                            👤
+                                            <i class="bi bi-person-circle ub-icon" aria-hidden="true"></i>
                                         </div>
 
                                         <div>
@@ -433,19 +433,19 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
                                     <?php if ($estado === 'pendiente'): ?>
 
                                         <span class="estado-badge estado-pendiente">
-                                            🕐 Pendiente
+                                            <i class="bi bi-clock ub-icon" aria-hidden="true"></i> Pendiente
                                         </span>
 
                                     <?php elseif ($estado === 'aceptado'): ?>
 
                                         <span class="estado-badge estado-aceptado">
-                                            ✓ Aceptado
+                                            <i class="bi bi-check-lg ub-icon" aria-hidden="true"></i> Aceptado
                                         </span>
 
                                     <?php elseif ($estado === 'rechazado'): ?>
 
                                         <span class="estado-badge estado-rechazado">
-                                            ✕ Rechazado
+                                            <i class="bi bi-x-lg ub-icon" aria-hidden="true"></i> Rechazado
                                         </span>
 
                                     <?php else: ?>
@@ -481,7 +481,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
                                 <div class="libro-box">
 
                                     <div class="libro-label">
-                                        📕 Tu libro
+                                        <i class="bi bi-book ub-icon" aria-hidden="true"></i> Tu libro
                                     </div>
 
                                     <div class="libro-nombre">
@@ -506,7 +506,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
                                 <div class="libro-box ofrecido">
 
                                     <div class="libro-label">
-                                        📗 Te ofrece
+                                        <i class="bi bi-book ub-icon" aria-hidden="true"></i> Te ofrece
                                     </div>
 
                                     <div class="libro-nombre">
@@ -548,7 +548,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
                                                 name="aceptar_intercambio"
                                                 class="btn btn-success w-100"
                                             >
-                                                ✓ Aceptar intercambio
+                                                <i class="bi bi-check-lg ub-icon" aria-hidden="true"></i> Aceptar intercambio
                                             </button>
 
                                         </form>
@@ -571,7 +571,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
                                                 name="rechazar_intercambio"
                                                 class="btn btn-outline-danger w-100"
                                             >
-                                                ✕ Rechazar solicitud
+                                                <i class="bi bi-x-lg ub-icon" aria-hidden="true"></i> Rechazar solicitud
                                             </button>
 
                                         </form>
@@ -585,7 +585,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
 
                                     <div class="estado-final aceptado">
 
-                                        ✓
+                                        <i class="bi bi-check-lg ub-icon" aria-hidden="true"></i>
                                         Este intercambio fue aceptado.
 
                                     </div>
@@ -596,7 +596,7 @@ $mensajeIntercambio = $_GET['intercambio'] ?? '';
 
                                     <div class="estado-final rechazado">
 
-                                        ✕
+                                        <i class="bi bi-x-lg ub-icon" aria-hidden="true"></i>
                                         Esta solicitud fue rechazada.
 
                                     </div>

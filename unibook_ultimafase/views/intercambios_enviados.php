@@ -38,7 +38,7 @@
         <div class="text-center py-5">
 
             <div style="font-size: 60px;">
-                📚
+                <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i>
             </div>
 
             <h3 class="fw-bold mt-3">

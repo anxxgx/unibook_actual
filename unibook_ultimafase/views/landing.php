@@ -40,9 +40,17 @@ $totalIntercambios   = $totalIntercambios   ?? 3150;
 
 <!-- Bootstrap 5 grid utilities (mantenido para compatibilidad con el resto del sitio) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <!-- Estilos propios de la landing -->
 <link rel="stylesheet" href="assets/css/landing.css">
+<style>
+  .ub-icon{display:inline-block;margin-left:.38em;font-size:1.18em;line-height:1;vertical-align:-.08em;animation:ub-icon-float 2.6s ease-in-out infinite;transition:transform .22s ease,color .22s ease}
+  a:has(.ub-icon),button:has(.ub-icon){display:inline-flex;align-items:center;flex-direction:row-reverse}
+  .ub-btn:hover .ub-icon,.ub-btn:focus-visible .ub-icon{animation:none;transform:translateY(-3px) scale(1.18) rotate(-7deg)}
+  @keyframes ub-icon-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+  @media (prefers-reduced-motion:reduce){.ub-icon{animation:none;transition:none}}
+</style>
 </head>
 <body>
 

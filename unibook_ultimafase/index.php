@@ -72,13 +72,13 @@ if (isset($_POST['registrar'])) {
     $mensajeRegistro = $registroExitoso ? "
         <div class='container mt-4'>
             <div class='ub-alert ub-alert-success'>
-                ✅ Cuenta creada correctamente. Ya puedes iniciar sesión.
+                <i class='bi bi-check-circle-fill ub-icon' aria-hidden='true'></i> Cuenta creada correctamente. Ya puedes iniciar sesión.
             </div>
         </div>
     " : "
         <div class='container mt-4'>
             <div class='ub-alert ub-alert-danger'>
-                ❌ No se pudo crear la cuenta. Revisa los datos, usa una contraseña de al menos 8 caracteres y prueba con otro correo.
+                <i class='bi bi-x-circle-fill ub-icon' aria-hidden='true'></i> No se pudo crear la cuenta. Revisa los datos, usa una contraseña de al menos 8 caracteres y prueba con otro correo.
             </div>
         </div>
     ";
@@ -106,13 +106,13 @@ if (isset($_POST['publicar_libro'])) {
     $mensajePublicar = $publicacionExitosa ? "
         <div class='container mt-4'>
             <div class='ub-alert ub-alert-success'>
-                ✅ Libro publicado correctamente.
+                <i class='bi bi-check-circle-fill ub-icon' aria-hidden='true'></i> Libro publicado correctamente.
             </div>
         </div>
     " : "
         <div class='container mt-4'>
             <div class='ub-alert ub-alert-danger'>
-                ❌ No se pudo publicar el libro. Verifica los datos y, si adjuntas una imagen, que sea JPG, PNG o WEBP de máximo 5 MB.
+                <i class='bi bi-x-circle-fill ub-icon' aria-hidden='true'></i> No se pudo publicar el libro. Verifica los datos y, si adjuntas una imagen, que sea JPG, PNG o WEBP de máximo 5 MB.
             </div>
         </div>
     ";
@@ -459,7 +459,7 @@ if (isset($_POST['enviar_mensaje'])) {
 
     <link
         rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.72em%22 font-size=%2270%22>U</text></svg>"
     >
 
     <link
@@ -468,9 +468,43 @@ if (isset($_POST['enviar_mensaje'])) {
     >
 
     <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+    <link
         href="assets/css/style.css"
         rel="stylesheet"
     >
+
+    <style>
+        .ub-icon {
+            display: inline-block;
+            margin-left: .38em;
+            font-size: 1.18em;
+            line-height: 1;
+            vertical-align: -.08em;
+            animation: ub-icon-float 2.6s ease-in-out infinite;
+            transition: transform .22s ease, color .22s ease;
+        }
+        a:has(.ub-icon), button:has(.ub-icon) {
+            display: inline-flex;
+            align-items: center;
+            flex-direction: row-reverse;
+        }
+        a:hover .ub-icon, a:focus-visible .ub-icon,
+        button:hover .ub-icon, button:focus-visible .ub-icon {
+            animation: none;
+            transform: translateY(-3px) scale(1.18) rotate(-7deg);
+        }
+        @keyframes ub-icon-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .ub-icon { animation: none; transition: none; }
+        }
+    </style>
 
 </head>
 

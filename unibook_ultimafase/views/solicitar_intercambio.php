@@ -41,7 +41,7 @@ if ($misLibros) {
         <div class="mt-4">
 
             <span class="badge bg-primary-subtle text-primary mb-2">
-                🔄 INTERCAMBIO
+                <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i> INTERCAMBIO
             </span>
 
             <h1 class="fw-bold">
@@ -64,7 +64,7 @@ if ($misLibros) {
         <div class="card-body p-4">
 
             <h5 class="fw-bold mb-3">
-                📚 Libro que quieres recibir
+                <i class="bi bi-book ub-icon" aria-hidden="true"></i> Libro que quieres recibir
             </h5>
 
             <div class="row align-items-center">
@@ -99,7 +99,7 @@ if ($misLibros) {
                     <?php if (!empty($libroSolicitado['autor'])): ?>
 
                         <p class="text-muted mb-2">
-                            ✍️
+                            <i class="bi bi-pencil-square ub-icon" aria-hidden="true"></i>
                             <?php
                             echo htmlspecialchars(
                                 $libroSolicitado['autor']
@@ -114,7 +114,7 @@ if ($misLibros) {
                         <?php if (!empty($libroSolicitado['universidad'])): ?>
 
                             <span class="badge bg-light text-dark">
-                                🎓
+                                <i class="bi bi-mortarboard ub-icon" aria-hidden="true"></i>
                                 <?php
                                 echo htmlspecialchars(
                                     $libroSolicitado['universidad']
@@ -127,7 +127,7 @@ if ($misLibros) {
                         <?php if (!empty($libroSolicitado['carrera'])): ?>
 
                             <span class="badge bg-light text-dark">
-                                📖
+                                <i class="bi bi-journal-bookmark ub-icon" aria-hidden="true"></i>
                                 <?php
                                 echo htmlspecialchars(
                                     $libroSolicitado['carrera']
@@ -155,7 +155,7 @@ if ($misLibros) {
         <div class="card-body p-4">
 
             <h5 class="fw-bold mb-2">
-                🔄 Elige el libro que vas a ofrecer
+                <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i> Elige el libro que vas a ofrecer
             </h5>
 
             <p class="text-muted mb-4">
@@ -241,7 +241,7 @@ if ($misLibros) {
                                                 <span
                                                     style="font-size: 3rem;"
                                                 >
-                                                    📚
+                                                    <i class="bi bi-book ub-icon" aria-hidden="true"></i>
                                                 </span>
 
                                             </div>
@@ -281,7 +281,7 @@ if ($misLibros) {
 
                                                 <small class="text-muted">
 
-                                                    🎓
+                                                    <i class="bi bi-mortarboard ub-icon" aria-hidden="true"></i>
                                                     <?php
                                                     echo htmlspecialchars(
                                                         $libro['universidad']
@@ -333,7 +333,7 @@ if ($misLibros) {
                                 type="submit"
                                 class="btn btn-primary rounded-pill px-4"
                             >
-                                🔄 Enviar solicitud de intercambio
+                                <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i> Enviar solicitud de intercambio
                             </button>
 
                         </div>
@@ -353,7 +353,7 @@ if ($misLibros) {
                         style="font-size: 4rem;"
                         class="mb-3"
                     >
-                        📚
+                        <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i>
                     </div>
 
                     <h4 class="fw-bold">

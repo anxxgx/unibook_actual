@@ -198,7 +198,7 @@ $conversaciones = $conversaciones ?? [];
 
         <div class="mensajes-header">
 
-            <h1>💬 Mensajes</h1>
+            <h1><i class="bi bi-chat-dots ub-icon" aria-hidden="true"></i> Mensajes</h1>
 
             <p>
                 Tus conversaciones sobre libros de UniBook.
@@ -248,7 +248,7 @@ $conversaciones = $conversaciones ?? [];
                             <?php else: ?>
 
                                 <div class="sin-imagen">
-                                    📚
+                                    <i class="bi bi-book ub-icon" aria-hidden="true"></i>
                                 </div>
 
                             <?php endif; ?>
@@ -268,7 +268,7 @@ $conversaciones = $conversaciones ?? [];
 
                             <div class="conversacion-libro">
 
-                                📖
+                                <i class="bi bi-journal-bookmark ub-icon" aria-hidden="true"></i>
 
                                 <?php
                                 echo htmlspecialchars(
@@ -323,7 +323,7 @@ $conversaciones = $conversaciones ?? [];
             <div class="mensajes-vacio">
 
                 <div class="icono">
-                    💬
+                    <i class="bi bi-chat-dots ub-icon" aria-hidden="true"></i>
                 </div>
 
                 <h3>
@@ -339,7 +339,7 @@ $conversaciones = $conversaciones ?? [];
                     href="index.php?accion=catalogo"
                     class="btn-ub btn-ub-primary"
                 >
-                    📚 Ir al catálogo
+                    <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i> Ir al catálogo
                 </a>
 
             </div>

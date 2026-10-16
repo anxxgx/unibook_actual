@@ -33,13 +33,13 @@ $dispoClasesPerfil = [
 
     <?php if(isset($_GET['eliminado'])){ ?>
         <div class="ub-alert ub-alert-success">
-            ✅ La publicación fue eliminada correctamente.
+            <i class="bi bi-check-circle-fill ub-icon" aria-hidden="true"></i> La publicación fue eliminada correctamente.
         </div>
     <?php } ?>
 
     <?php if(isset($_GET['error'])){ ?>
         <div class="ub-alert ub-alert-danger">
-            ❌ No se pudo eliminar la publicación.
+            <i class="bi bi-x-circle-fill ub-icon" aria-hidden="true"></i> No se pudo eliminar la publicación.
         </div>
     <?php } ?>
 
@@ -51,7 +51,7 @@ $dispoClasesPerfil = [
             <div class="row align-items-center g-3">
 
                 <div class="col-md-2 text-center">
-                    <div class="avatar-ring mx-auto">👤</div>
+                    <div class="avatar-ring mx-auto"><i class="bi bi-person ub-icon" aria-hidden="true"></i></div>
                 </div>
 
                 <div class="col-md-10">
@@ -71,7 +71,7 @@ $dispoClasesPerfil = [
         <div class="col-md-4 reveal">
             <div class="stat-card">
                 <div class="num"><?php echo $totalLibros; ?></div>
-                <div class="lbl">📚 Publicaciones</div>
+                <div class="lbl"><i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i> Publicaciones</div>
             </div>
         </div>
 
@@ -84,7 +84,7 @@ $dispoClasesPerfil = [
 
         <div class="col-md-4 reveal">
             <div class="stat-card">
-                <div class="num">🎓</div>
+                <div class="num"><i class="bi bi-mortarboard ub-icon" aria-hidden="true"></i></div>
                 <div class="lbl">Comunidad UniBook</div>
             </div>
         </div>
@@ -94,7 +94,7 @@ $dispoClasesPerfil = [
     <!-- PUBLICACIONES -->
     <div class="ub-card p-4 reveal">
 
-        <h3 class="fw-bold mb-3">📚 Mis publicaciones</h3>
+        <h3 class="fw-bold mb-3"><i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i> Mis publicaciones</h3>
         <hr style="border-color: var(--paper-line);">
 
         <?php if($misLibros->num_rows > 0){ ?>
@@ -128,7 +128,7 @@ $dispoClasesPerfil = [
                                     </span>
                                 </div>
 
-                                <p class="mb-1 text-muted" style="font-size:14px;">👨 <?php echo $libro['autor']; ?></p>
+                                <p class="mb-1 text-muted" style="font-size:14px;"><i class="bi bi-person ub-icon" aria-hidden="true"></i> <?php echo $libro['autor']; ?></p>
                                 <p class="mb-0 price" style="font-size:18px;">$<?php echo number_format($libro['precio']); ?></p>
 
                             </div>
@@ -136,13 +136,13 @@ $dispoClasesPerfil = [
                             <div class="col-md-5 text-md-end">
 
                                 <a href="index.php?accion=detalle_libro&id=<?php echo $libro['id']; ?>" class="btn-ub btn-ub-dark btn-ub-sm">
-                                    👁 Ver
+                                    <i class="bi bi-eye ub-icon" aria-hidden="true"></i> Ver
                                 </a>
 
                                 <form method="POST" action="index.php" class="d-inline" onsubmit="return confirmarEliminacion();">
                                     <input type="hidden" name="id" value="<?php echo $libro['id']; ?>">
                                     <button type="submit" name="eliminar_libro" class="btn-ub btn-ub-danger btn-ub-sm">
-                                        🗑️ Eliminar
+                                        <i class="bi bi-trash3 ub-icon" aria-hidden="true"></i> Eliminar
                                     </button>
                                 </form>
 
@@ -159,7 +159,7 @@ $dispoClasesPerfil = [
         <?php }else{ ?>
 
             <div class="ub-alert" style="background: var(--paper-dim); color: var(--text-muted);">
-                📚 Aún no has publicado libros.
+                <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i> Aún no has publicado libros.
             </div>
 
         <?php } ?>

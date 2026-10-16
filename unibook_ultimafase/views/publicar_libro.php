@@ -135,9 +135,9 @@ if (!isset($_SESSION['id_usuario'])) {
                         <div class="ub-field">
                             <label>Imagen del libro</label>
                             <label class="ub-file d-block">
-                                <span id="fileLabel">📷 Haz clic para subir una foto de la portada</span>
+                                <span id="fileLabel"><i class="bi bi-camera ub-icon" aria-hidden="true"></i> Haz clic para subir una foto de la portada</span>
                                 <input type="file" name="imagen" accept="image/*" style="display:none;"
-                                    onchange="document.getElementById('fileLabel').textContent = this.files[0] ? this.files[0].name : '📷 Haz clic para subir una foto de la portada';">
+                                    onchange="document.getElementById('fileLabel').textContent = this.files[0] ? this.files[0].name : 'Haz clic para subir una foto de la portada';">
                             </label>
                         </div>
 

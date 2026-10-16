@@ -18,7 +18,7 @@ if (!$datos) {
     <nav class="navbar ub-nav">
         <div class="container justify-content-between">
             <a class="navbar-brand" href="index.php">
-                <span class="mark">📚</span> UniBook
+                <span class="mark"><i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i></span> UniBook
             </a>
 
             <a href="index.php?accion=login" class="btn-ub btn-ub-outline on-dark btn-ub-sm">
@@ -93,7 +93,7 @@ $totalReservados = count($librosReservados);
             <div class="catalog-search">
 
                 <span class="catalog-search__icon" aria-hidden="true">
-                    🔍
+                    <i class="bi bi-search ub-icon" aria-hidden="true"></i>
                 </span>
 
                 <input
@@ -189,24 +189,24 @@ $totalReservados = count($librosReservados);
                             <div class="meta-row">
 
                                 <span>
-                                    👨 <b>
+                                    <i class="bi bi-person ub-icon" aria-hidden="true"></i> <b>
                                         <?php echo htmlspecialchars($libro['autor']); ?>
                                     </b>
                                 </span>
 
                                 <span>
-                                    🏫 <?php echo htmlspecialchars($libro['universidad']); ?>
+                                    <i class="bi bi-building ub-icon" aria-hidden="true"></i> <?php echo htmlspecialchars($libro['universidad']); ?>
                                 </span>
 
                                 <span>
-                                    🎓
+                                    <i class="bi bi-mortarboard ub-icon" aria-hidden="true"></i>
                                     <?php echo htmlspecialchars($libro['carrera']); ?>
                                     · Sem.
                                     <?php echo htmlspecialchars($libro['semestre']); ?>
                                 </span>
 
                                 <span>
-                                    📖 <?php echo htmlspecialchars($libro['materia']); ?>
+                                    <i class="bi bi-journal-bookmark ub-icon" aria-hidden="true"></i> <?php echo htmlspecialchars($libro['materia']); ?>
                                 </span>
 
                             </div>
@@ -248,7 +248,7 @@ $totalReservados = count($librosReservados);
             style="display:none;">
 
             <div class="catalog-empty__icon">
-                📭
+                <i class="bi bi-inbox ub-icon" aria-hidden="true"></i>
             </div>
 
             <h5 class="fw-bold mb-1">
@@ -349,25 +349,25 @@ $totalReservados = count($librosReservados);
                                 <div class="meta-row">
 
                                     <span>
-                                        👨 <b>
+                                        <i class="bi bi-person ub-icon" aria-hidden="true"></i> <b>
                                             <?php echo htmlspecialchars($libro['autor']); ?>
                                         </b>
                                     </span>
 
                                     <span>
-                                        🏫
+                                        <i class="bi bi-building ub-icon" aria-hidden="true"></i>
                                         <?php echo htmlspecialchars($libro['universidad']); ?>
                                     </span>
 
                                     <span>
-                                        🎓
+                                        <i class="bi bi-mortarboard ub-icon" aria-hidden="true"></i>
                                         <?php echo htmlspecialchars($libro['carrera']); ?>
                                         · Sem.
                                         <?php echo htmlspecialchars($libro['semestre']); ?>
                                     </span>
 
                                     <span>
-                                        📖
+                                        <i class="bi bi-journal-bookmark ub-icon" aria-hidden="true"></i>
                                         <?php echo htmlspecialchars($libro['materia']); ?>
                                     </span>
 

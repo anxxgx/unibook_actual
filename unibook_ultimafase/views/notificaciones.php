@@ -18,7 +18,7 @@ include "views/partials/navbar.php";
                 </span>
 
                 <h1 class="fw-bold mb-1">
-                    Notificaciones 🔔
+                    Notificaciones <i class="bi bi-bell ub-icon" aria-hidden="true"></i>
                 </h1>
 
                 <p class="text-muted mb-0">
@@ -40,7 +40,7 @@ include "views/partials/navbar.php";
                         type="submit"
                         class="btn-ub btn-ub-outline btn-ub-sm"
                     >
-                        ✓ Marcar todas como leídas
+                        <i class="bi bi-check2-all ub-icon" aria-hidden="true"></i> Marcar todas como leídas
                     </button>
 
                 </form>
@@ -54,7 +54,7 @@ include "views/partials/navbar.php";
         <?php if($notificacionesNoLeidas > 0){ ?>
 
             <div class="notification-count reveal">
-                <span>🔔</span>
+                <span><i class="bi bi-bell ub-icon" aria-hidden="true"></i></span>
 
                 Tienes
                 <strong>
@@ -74,7 +74,7 @@ include "views/partials/navbar.php";
             <div class="catalog-empty reveal">
 
                 <div class="catalog-empty__icon">
-                    🔔
+                    <i class="bi bi-bell ub-icon" aria-hidden="true"></i>
                 </div>
 
                 <h5 class="fw-bold mb-1">
@@ -105,18 +105,18 @@ include "views/partials/navbar.php";
 
                     $tipo = $notificacion['tipo'];
 
-                    $icono = '🔔';
+                    $icono = 'bi-bell';
 
                     if($tipo === 'nueva_compra'){
-                        $icono = '🛍️';
+                        $icono = 'bi-bag-check';
                     }
 
                     if($tipo === 'compra_confirmada'){
-                        $icono = '✅';
+                        $icono = 'bi-check-circle-fill';
                     }
 
                     if($tipo === 'compra_cancelada'){
-                        $icono = '❌';
+                        $icono = 'bi-x-circle-fill';
                     }
 
                     ?>
@@ -128,7 +128,7 @@ include "views/partials/navbar.php";
                     >
 
                         <div class="notification-icon">
-                            <?php echo $icono; ?>
+                            <i class="bi <?php echo $icono; ?> ub-icon" aria-hidden="true"></i>
                         </div>
 
 
@@ -170,7 +170,7 @@ include "views/partials/navbar.php";
                             <div class="notification-footer">
 
                                 <span class="notification-date">
-                                    🕒
+                                    <i class="bi bi-clock ub-icon" aria-hidden="true"></i>
                                     <?php
                                     echo date(
                                         'd/m/Y H:i',
@@ -225,7 +225,7 @@ include "views/partials/navbar.php";
                                                 type="submit"
                                                 class="btn-ub btn-ub-outline btn-ub-sm"
                                             >
-                                                ✓ Marcar leída
+                                                <i class="bi bi-check-lg ub-icon" aria-hidden="true"></i> Marcar leída
                                             </button>
 
                                         </form>

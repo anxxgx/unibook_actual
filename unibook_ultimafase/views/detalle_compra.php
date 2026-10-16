@@ -22,7 +22,7 @@ if(session_status() === PHP_SESSION_NONE){
             <div class="catalog-empty reveal">
 
                 <div class="catalog-empty__icon">
-                    🧾
+                    <i class="bi bi-receipt ub-icon" aria-hidden="true"></i>
                 </div>
 
                 <h5 class="fw-bold mb-1">
@@ -382,7 +382,7 @@ if(session_status() === PHP_SESSION_NONE){
             <div class="text-center reveal mb-4">
 
                 <div class="confirm-icon">
-                    🧾
+                    <i class="bi bi-receipt ub-icon" aria-hidden="true"></i>
                 </div>
 
                 <p
@@ -414,7 +414,7 @@ if(session_status() === PHP_SESSION_NONE){
                 "
             >
 
-                <strong>⚠️ Proceso simulado</strong>
+                <strong><i class="bi bi-exclamation-triangle ub-icon" aria-hidden="true"></i> Proceso simulado</strong>
 
                 <div
                     class="mt-1"
@@ -441,7 +441,7 @@ if(session_status() === PHP_SESSION_NONE){
                     "
                 >
 
-                    <strong>👋 Tienes una venta pendiente</strong>
+                    <strong><i class="bi bi-hand-index-thumb ub-icon" aria-hidden="true"></i> Tienes una venta pendiente</strong>
 
                     <div
                         class="mt-1"
@@ -508,7 +508,7 @@ if(session_status() === PHP_SESSION_NONE){
                     <?php else: ?>
 
                         <span>
-                            📘
+                            <i class="bi bi-book ub-icon" aria-hidden="true"></i>
                         </span>
 
                     <?php endif; ?>
@@ -531,7 +531,7 @@ if(session_status() === PHP_SESSION_NONE){
                     <?php if(!empty($detalleCompra['autor'])): ?>
 
                         <p>
-                            👨
+                            <i class="bi bi-person ub-icon" aria-hidden="true"></i>
                             <?= htmlspecialchars(
                                 $detalleCompra['autor']
                             ) ?>
@@ -541,7 +541,7 @@ if(session_status() === PHP_SESSION_NONE){
 
 
                     <p>
-                        🧾 Operación:
+                        <i class="bi bi-receipt ub-icon" aria-hidden="true"></i> Operación:
                         <b>
                             #<?= (int)$detalleCompra['id'] ?>
                         </b>
@@ -549,7 +549,7 @@ if(session_status() === PHP_SESSION_NONE){
 
 
                     <p>
-                        📅 Fecha:
+                        <i class="bi bi-calendar-event ub-icon" aria-hidden="true"></i> Fecha:
                         <b>
                             <?= htmlspecialchars(
                                 $fechaCompra
@@ -661,7 +661,7 @@ if(session_status() === PHP_SESSION_NONE){
 
                             <h4 class="fw-bold mb-2">
 
-                                💳
+                                <i class="bi bi-credit-card ub-icon" aria-hidden="true"></i>
                                 <?= htmlspecialchars(
                                     $metodoLabel
                                 ) ?>
@@ -706,7 +706,7 @@ if(session_status() === PHP_SESSION_NONE){
 
                             <h5 class="fw-bold mb-2">
 
-                                👤
+                                <i class="bi bi-person-circle ub-icon" aria-hidden="true"></i>
                                 <?= htmlspecialchars(
                                     $nombreComprador
                                 ) ?>
@@ -754,7 +754,7 @@ if(session_status() === PHP_SESSION_NONE){
 
                             <h5 class="fw-bold mb-2">
 
-                                👤
+                                <i class="bi bi-person-circle ub-icon" aria-hidden="true"></i>
                                 <?= htmlspecialchars(
                                     $nombreVendedor
                                 ) ?>
@@ -810,19 +810,19 @@ if(session_status() === PHP_SESSION_NONE){
 
                                 <?php if($estadoLibro === 'vendido'): ?>
 
-                                    📦 Vendido
+                                    <i class="bi bi-box-seam ub-icon" aria-hidden="true"></i> Vendido
 
                                 <?php elseif($estadoLibro === 'disponible'): ?>
 
-                                    📚 Disponible
+                                    <i class="bi bi-bookshelf ub-icon" aria-hidden="true"></i> Disponible
 
                                 <?php elseif($estadoLibro === 'intercambiado'): ?>
 
-                                    🔄 Intercambiado
+                                    <i class="bi bi-arrow-left-right ub-icon" aria-hidden="true"></i> Intercambiado
 
                                 <?php else: ?>
 
-                                    📦 Reservado
+                                    <i class="bi bi-box-seam ub-icon" aria-hidden="true"></i> Reservado
 
                                 <?php endif; ?>
 
@@ -929,7 +929,7 @@ if(session_status() === PHP_SESSION_NONE){
                                     class="btn-ub btn-ub-gold"
                                     onclick="return confirm('¿Confirmar esta venta? El libro pasará a estado vendido.');"
                                 >
-                                    ✓ Confirmar venta
+                                    <i class="bi bi-check-lg ub-icon" aria-hidden="true"></i> Confirmar venta
                                 </button>
 
                             </form>
@@ -954,7 +954,7 @@ if(session_status() === PHP_SESSION_NONE){
                                     class="btn-ub btn-ub-outline"
                                     onclick="return confirm('¿Rechazar esta operación? El libro volverá a estar disponible.');"
                                 >
-                                    ✕ Rechazar venta
+                                    <i class="bi bi-x-lg ub-icon" aria-hidden="true"></i> Rechazar venta
                                 </button>
 
                             </form>
