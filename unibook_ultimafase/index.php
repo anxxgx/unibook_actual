@@ -32,7 +32,33 @@ $mensajeController =
 
 
 $accion =
-    $_GET['accion'] ?? 'registro';
+    $_GET['accion'] ?? 'landing';
+
+/* La landing contiene su propio documento HTML. */
+if ($accion === 'landing') {
+    $totalesLanding = [
+        'libros' => 0,
+        'universidades' => 0,
+        'usuarios' => 0,
+        'intercambios' => 0,
+    ];
+    $consultaTotales = $conexion->query(
+        "SELECT
+            (SELECT COUNT(*) FROM libros WHERE estado_disponibilidad = 'disponible') AS libros,
+            (SELECT COUNT(DISTINCT universidad) FROM libros WHERE universidad IS NOT NULL AND universidad <> '') AS universidades,
+            (SELECT COUNT(*) FROM usuarios) AS usuarios,
+            (SELECT COUNT(*) FROM intercambios WHERE estado = 'aceptado') AS intercambios"
+    );
+    if ($consultaTotales) {
+        $totalesLanding = $consultaTotales->fetch_assoc();
+    }
+    $totalLibros = (int)$totalesLanding['libros'];
+    $totalUniversidades = (int)$totalesLanding['universidades'];
+    $totalUsuarios = (int)$totalesLanding['usuarios'];
+    $totalIntercambios = (int)$totalesLanding['intercambios'];
+    include "views/landing.php";
+    exit();
+}
 
 
 // ============================================================
@@ -41,12 +67,18 @@ $accion =
 
 if (isset($_POST['registrar'])) {
 
-    $usuarioController->registrar();
+    $registroExitoso = $usuarioController->registrar();
 
-    $mensajeRegistro = "
+    $mensajeRegistro = $registroExitoso ? "
         <div class='container mt-4'>
             <div class='ub-alert ub-alert-success'>
                 ✅ Cuenta creada correctamente. Ya puedes iniciar sesión.
+            </div>
+        </div>
+    " : "
+        <div class='container mt-4'>
+            <div class='ub-alert ub-alert-danger'>
+                ❌ No se pudo crear la cuenta. Revisa los datos, usa una contraseña de al menos 8 caracteres y prueba con otro correo.
             </div>
         </div>
     ";
@@ -69,12 +101,18 @@ if (isset($_POST['login'])) {
 
 if (isset($_POST['publicar_libro'])) {
 
-    $libroController->publicar();
+    $publicacionExitosa = $libroController->publicar();
 
-    $mensajePublicar = "
+    $mensajePublicar = $publicacionExitosa ? "
         <div class='container mt-4'>
             <div class='ub-alert ub-alert-success'>
                 ✅ Libro publicado correctamente.
+            </div>
+        </div>
+    " : "
+        <div class='container mt-4'>
+            <div class='ub-alert ub-alert-danger'>
+                ❌ No se pudo publicar el libro. Verifica los datos y, si adjuntas una imagen, que sea JPG, PNG o WEBP de máximo 5 MB.
             </div>
         </div>
     ";
@@ -451,6 +489,12 @@ switch ($accion) {
     case 'login':
 
         include "views/login.php";
+
+    break;
+
+    case 'registro':
+
+        include "views/registro.php";
 
     break;
 

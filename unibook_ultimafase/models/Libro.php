@@ -67,10 +67,11 @@ class Libro
         );
 
         $resultado = $stmt->execute();
+        $afectadas = $stmt->affected_rows;
 
         $stmt->close();
 
-        return $resultado;
+        return $resultado && $afectadas > 0;
     }
 
 
@@ -137,9 +138,18 @@ class Libro
 
     public function eliminar($id, $usuario_id)
     {
+        /*
+         * Una publicación involucrada en una compra no se borra: el detalle
+         * e historial de esa operación deben seguir siendo consultables.
+         * Tampoco se permite borrar un libro reservado.
+         */
         $sql = "DELETE FROM libros
                 WHERE id = ?
-                AND usuario_id = ?";
+                AND usuario_id = ?
+                AND estado_disponibilidad = 'disponible'
+                AND NOT EXISTS (
+                    SELECT 1 FROM compras WHERE compras.libro_id = libros.id
+                )";
 
         $stmt = $this->conexion->prepare($sql);
 
@@ -150,10 +160,11 @@ class Libro
         $stmt->bind_param("ii", $id, $usuario_id);
 
         $resultado = $stmt->execute();
+        $afectadas = $stmt->affected_rows;
 
         $stmt->close();
 
-        return $resultado;
+        return $resultado && $afectadas > 0;
     }
 
 

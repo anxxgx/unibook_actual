@@ -211,6 +211,9 @@ class CompraController
             ];
         }
 
+        /* Reservar el libro y crear la compra es una sola operación. */
+        $this->conexion->begin_transaction();
+
         $reservado =
             $this->libroModelo
                 ->reservarSiDisponible(
@@ -218,6 +221,7 @@ class CompraController
                 );
 
         if(!$reservado){
+            $this->conexion->rollback();
             return [
                 'ok' => false,
                 'motivo' => 'no_disponible',
@@ -238,11 +242,7 @@ class CompraController
             );
 
         if(!$compra_id){
-
-            $this->libroModelo
-                ->marcarDisponible(
-                    $libro_id
-                );
+            $this->conexion->rollback();
 
             return [
                 'ok' => false,
@@ -250,6 +250,8 @@ class CompraController
                 'libro_id' => $libro_id
             ];
         }
+
+        $this->conexion->commit();
 
 
         /*
@@ -352,23 +354,12 @@ class CompraController
             ];
         }
 
-        $this->conexion->begin_transaction();
-
-        $libroActualizado =
-            $this->libroModelo
-                ->marcarVendidoSiReservado(
-                    $detalle['libro_id']
-                );
-
-        if(!$libroActualizado){
-            $this->conexion->rollback();
-
-            return [
-                'ok' => false,
-                'motivo' => 'libro'
-            ];
-        }
-
+        /*
+         * Compra::confirmarVenta() es la única responsable de la
+         * transacción: confirma la compra y cambia el libro de reservado a
+         * vendido. Hacer el cambio aquí también dejaba el libro vendido y
+         * hacía fallar la segunda actualización.
+         */
         $compraActualizada =
             $this->modelo
                 ->confirmarVenta(
@@ -377,16 +368,11 @@ class CompraController
                 );
 
         if(!$compraActualizada){
-            $this->conexion->rollback();
-
             return [
                 'ok' => false,
                 'motivo' => 'compra'
             ];
         }
-
-        $this->conexion->commit();
-
 
         /*
          * 🔔 NOTIFICACIÓN AL COMPRADOR
@@ -479,8 +465,7 @@ class CompraController
             ];
         }
 
-        $this->conexion->begin_transaction();
-
+        /* cancelarVenta() libera el libro dentro de su propia transacción. */
         $compraActualizada =
             $this->modelo
                 ->cancelarVenta(
@@ -489,31 +474,11 @@ class CompraController
                 );
 
         if(!$compraActualizada){
-            $this->conexion->rollback();
-
             return [
                 'ok' => false,
                 'motivo' => 'compra'
             ];
         }
-
-        $libroDisponible =
-            $this->libroModelo
-                ->marcarDisponible(
-                    $detalle['libro_id']
-                );
-
-        if(!$libroDisponible){
-            $this->conexion->rollback();
-
-            return [
-                'ok' => false,
-                'motivo' => 'libro'
-            ];
-        }
-
-        $this->conexion->commit();
-
 
         /*
          * 🔔 NOTIFICACIÓN AL COMPRADOR

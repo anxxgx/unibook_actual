@@ -22,42 +22,83 @@ class LibroController {
 
         }
 
+        if (!isset($_SESSION['id_usuario'])) {
+            return false;
+        }
+
+        $camposRequeridos = ['titulo', 'autor', 'tipo_publicacion'];
+        foreach ($camposRequeridos as $campo) {
+            if (trim($_POST[$campo] ?? '') === '') {
+                return false;
+            }
+        }
+
+        $tipoPublicacion = trim($_POST['tipo_publicacion'] ?? '');
+        $estado = trim($_POST['estado'] ?? '');
+        $precio = filter_var($_POST['precio'] ?? null, FILTER_VALIDATE_FLOAT);
+
+        if (
+            !in_array($tipoPublicacion, ['Venta', 'Intercambio'], true) ||
+            !in_array($estado, ['Nuevo', 'Usado'], true) ||
+            $precio === false || $precio < 0
+        ) {
+            return false;
+        }
+
         $rutaImagen = "";
 
-        if(
-            isset($_FILES['imagen']) &&
-            $_FILES['imagen']['error'] == 0
-        ){
+        if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] !== UPLOAD_ERR_NO_FILE) {
 
-            $nombreImagen =
-                time() . "_" .
-                basename($_FILES['imagen']['name']);
+            if ($_FILES['imagen']['error'] !== UPLOAD_ERR_OK) {
+                return false;
+            }
+
+            if ($_FILES['imagen']['size'] > 5 * 1024 * 1024) {
+                return false;
+            }
+
+            $tipoArchivo = (new finfo(FILEINFO_MIME_TYPE))->file(
+                $_FILES['imagen']['tmp_name']
+            );
+            $extensiones = [
+                'image/jpeg' => 'jpg',
+                'image/png'  => 'png',
+                'image/webp' => 'webp',
+            ];
+
+            if (!isset($extensiones[$tipoArchivo])) {
+                return false;
+            }
+
+            $nombreImagen = bin2hex(random_bytes(16)) . '.' . $extensiones[$tipoArchivo];
 
             $rutaImagen =
                 "assets/uploads/" .
                 $nombreImagen;
 
-            move_uploaded_file(
+            if (!move_uploaded_file(
                 $_FILES['imagen']['tmp_name'],
                 $rutaImagen
-            );
+            )) {
+                return false;
+            }
 
         }
 
 
-        $this->modelo->publicar(
+        return $this->modelo->publicar(
 
-            $_POST['titulo'],
-            $_POST['autor'],
-            $_POST['editorial'],
-            $_POST['universidad'],
-            $_POST['carrera'],
-            $_POST['semestre'],
-            $_POST['materia'],
-            $_POST['descripcion'],
-            $_POST['precio'],
-            $_POST['estado'],
-            $_POST['tipo_publicacion'],
+            trim($_POST['titulo']),
+            trim($_POST['autor']),
+            trim($_POST['editorial'] ?? ''),
+            trim($_POST['universidad'] ?? ''),
+            trim($_POST['carrera'] ?? ''),
+            trim($_POST['semestre'] ?? ''),
+            trim($_POST['materia'] ?? ''),
+            trim($_POST['descripcion'] ?? ''),
+            $precio,
+            $estado,
+            $tipoPublicacion,
             $rutaImagen,
             $_SESSION['id_usuario']
 

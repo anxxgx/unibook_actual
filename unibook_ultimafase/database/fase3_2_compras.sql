@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS compras (
     -- Estados simples, tal como se pidió: sin pasos intermedios
     -- innecesarios. 'cancelada' queda reservado para uso futuro
     -- (no tiene botón en esta fase).
-    estado              ENUM('pendiente', 'vendida', 'rechazada', 'cancelada')
+    estado              ENUM('pendiente', 'confirmada', 'rechazada', 'cancelada')
                          NOT NULL DEFAULT 'pendiente',
 
     fecha_compra        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -46,3 +46,15 @@ CREATE TABLE IF NOT EXISTS compras (
     INDEX idx_compras_vendedor (vendedor_id)
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Si la tabla ya fue creada con una versión anterior, alinea el estado
+-- con el que usan controladores y vistas.
+UPDATE compras c
+INNER JOIN libros l ON l.id = c.libro_id
+SET c.estado = 'confirmada'
+WHERE c.estado IN ('vendida', '')
+  AND l.estado_disponibilidad = 'vendido';
+
+ALTER TABLE compras
+    MODIFY estado ENUM('pendiente', 'confirmada', 'rechazada', 'cancelada')
+    NOT NULL DEFAULT 'pendiente';

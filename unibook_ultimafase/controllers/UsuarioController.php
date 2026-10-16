@@ -16,9 +16,18 @@ class UsuarioController {
 
     public function registrar(){
 
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $correo = $_POST['correo'];
+        $nombre = trim($_POST['nombre'] ?? '');
+        $apellido = trim($_POST['apellido'] ?? '');
+        $correo = strtolower(trim($_POST['correo'] ?? ''));
+
+        if (
+            $nombre === '' ||
+            $apellido === '' ||
+            !filter_var($correo, FILTER_VALIDATE_EMAIL) ||
+            strlen($_POST['password'] ?? '') < 8
+        ) {
+            return false;
+        }
 
         $password = password_hash(
             $_POST['password'],
@@ -26,7 +35,7 @@ class UsuarioController {
         );
 
 
-        $this->modelo->registrar(
+        return $this->modelo->registrar(
             $nombre,
             $apellido,
             $correo,

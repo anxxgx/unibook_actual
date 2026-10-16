@@ -42,7 +42,7 @@ $totalIntercambios   = $totalIntercambios   ?? 3150;
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
 <!-- Estilos propios de la landing -->
-<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="assets/css/landing.css">
 </head>
 <body>
 
@@ -51,21 +51,21 @@ $totalIntercambios   = $totalIntercambios   ?? 3150;
 ============================================================ -->
 <header class="ub-nav" id="ubNav">
   <div class="ub-nav__inner">
-    <a href="/" class="ub-nav__brand">
+    <a href="index.php?accion=landing" class="ub-nav__brand">
       <span class="ub-nav__mark">UB</span>
       <span class="ub-nav__wordmark">UniBook</span>
     </a>
 
     <nav class="ub-nav__links">
-      <a href="#catalogo">Catálogo</a>
+      <a href="index.php?accion=catalogo">Catálogo</a>
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#beneficios">Beneficios</a>
       <a href="#estadisticas">Comunidad</a>
     </nav>
 
     <div class="ub-nav__actions">
-      <a href="/login" class="ub-btn ub-btn--ghost">Ingresar</a>
-      <a href="/register" class="ub-btn ub-btn--gold">Crear cuenta</a>
+      <a href="index.php?accion=login" class="ub-btn ub-btn--ghost">Ingresar</a>
+      <a href="index.php?accion=registro" class="ub-btn ub-btn--gold">Crear cuenta</a>
     </div>
   </div>
 </header>
@@ -92,10 +92,10 @@ $totalIntercambios   = $totalIntercambios   ?? 3150;
       </p>
 
       <div class="ub-hero__cta">
-        <a href="/catalogo" class="ub-btn ub-btn--gold ub-btn--lg ub-ripple">
+        <a href="index.php?accion=catalogo" class="ub-btn ub-btn--gold ub-btn--lg ub-ripple">
           Explorar catálogo
         </a>
-        <a href="/vender" class="ub-btn ub-btn--outline ub-btn--lg ub-ripple">
+        <a href="index.php?accion=publicar_libro" class="ub-btn ub-btn--outline ub-btn--lg ub-ripple">
           Vender un libro
         </a>
       </div>
@@ -238,7 +238,7 @@ $totalIntercambios   = $totalIntercambios   ?? 3150;
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
         </div>
         <h3>Intercambio seguro</h3>
-        <p>Perfiles verificados por correo institucional y calificación pública tras cada transacción.</p>
+        <p>Gestiona solicitudes de intercambio y conversa con otros estudiantes dentro de la plataforma.</p>
       </div>
 
       <div class="ub-benefit-card" data-aos="fade-up" data-aos-delay="240">
@@ -260,7 +260,7 @@ $totalIntercambios   = $totalIntercambios   ?? 3150;
   <div class="ub-container ub-final-cta__inner">
     <h2>Tu próximo semestre puede costar menos.</h2>
     <p>Únete a la comunidad de estudiantes que ya está ahorrando en material universitario.</p>
-    <a href="/register" class="ub-btn ub-btn--gold ub-btn--lg ub-ripple">Crear cuenta gratis</a>
+    <a href="index.php?accion=registro" class="ub-btn ub-btn--gold ub-btn--lg ub-ripple">Crear cuenta gratis</a>
   </div>
 </section>
 
@@ -280,6 +280,6 @@ $totalIntercambios   = $totalIntercambios   ?? 3150;
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="js/landing.js"></script>
+<script src="assets/js/landing.js"></script>
 </body>
 </html>

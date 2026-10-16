@@ -34,7 +34,7 @@ CREATE TABLE `compras` (
   `vendedor_id` int(11) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
   `metodo_pago` enum('pse','nequi','bancolombia','daviplata') NOT NULL,
-  `estado` enum('pendiente','vendida','rechazada','cancelada') NOT NULL DEFAULT 'pendiente',
+  `estado` enum('pendiente','confirmada','rechazada','cancelada') NOT NULL DEFAULT 'pendiente',
   `fecha_compra` datetime NOT NULL DEFAULT current_timestamp(),
   `fecha_actualizacion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -46,10 +46,10 @@ CREATE TABLE `compras` (
 INSERT INTO `compras` (`id`, `libro_id`, `comprador_id`, `vendedor_id`, `precio`, `metodo_pago`, `estado`, `fecha_compra`, `fecha_actualizacion`) VALUES
 (1, 8, 16, 13, '120000.00', 'pse', 'pendiente', '2026-09-11 14:33:05', NULL),
 (2, 7, 16, 12, '200000.00', 'bancolombia', 'cancelada', '2026-09-11 14:34:15', '2026-09-11 15:53:14'),
-(3, 1, 16, 12, '20.00', 'nequi', '', '2026-09-11 14:43:14', '2026-09-11 15:52:17'),
-(4, 7, 16, 12, '200000.00', 'pse', '', '2026-09-11 15:58:31', '2026-09-11 20:58:58'),
-(5, 12, 18, 12, '127764.00', 'bancolombia', '', '2026-09-22 18:56:01', '2026-09-22 19:29:19'),
-(6, 14, 19, 18, '1200.00', 'daviplata', '', '2026-09-23 14:27:57', '2026-09-23 14:28:40');
+(3, 1, 16, 12, '20.00', 'nequi', 'confirmada', '2026-09-11 14:43:14', '2026-09-11 15:52:17'),
+(4, 7, 16, 12, '200000.00', 'pse', 'confirmada', '2026-09-11 15:58:31', '2026-09-11 20:58:58'),
+(5, 12, 18, 12, '127764.00', 'bancolombia', 'confirmada', '2026-09-22 18:56:01', '2026-09-22 19:29:19'),
+(6, 14, 19, 18, '1200.00', 'daviplata', 'confirmada', '2026-09-23 14:27:57', '2026-09-23 14:28:40');
 
 -- --------------------------------------------------------
 
