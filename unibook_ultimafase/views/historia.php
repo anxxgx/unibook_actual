@@ -6,60 +6,45 @@ if (session_status() === PHP_SESSION_NONE) {
 
 include "views/partials/navbar.php";
 
-$mapaEstado = [
-    [
-        'titulo' => 'Base de datos',
-        'detalle' => 'Estructuras de usuarios, libros, compras, intercambios, mensajes y notificaciones.',
-        'estado' => 'Revisada',
-        'clase' => 'revisada',
-        'icono' => 'bi-database-check',
-    ],
-    [
-        'titulo' => 'Compras y disponibilidad',
-        'detalle' => 'Hay estados de compra vacíos que requieren revisión antes de corregirlos.',
-        'estado' => 'Pendiente',
-        'clase' => 'pendiente',
-        'icono' => 'bi-cart-x',
-    ],
-    [
-        'titulo' => 'Controladores y modelos PHP',
-        'detalle' => 'Todavía no he podido inspeccionar el contenido de la carpeta del código desde esta herramienta.',
-        'estado' => 'Sin verificar',
-        'clase' => 'sin-verificar',
-        'icono' => 'bi-code-square',
-    ],
-    [
-        'titulo' => 'Prueba integral y entrega',
-        'detalle' => 'Falta comprobar el recorrido completo de las funciones y detectar errores.',
-        'estado' => 'Por hacer',
-        'clase' => 'por-hacer',
-        'icono' => 'bi-clipboard2-check',
-    ],
-];
+$librosGaleria = $historial ?? [];
 
 ?>
 
 <section class="state-map">
     <div class="container">
         <header class="state-map__heading">
-            <span class="state-map__eyebrow">381.46 — Seguimiento técnico</span>
-            <h1>Mapa de estado — <em>UniBook Medellín</em></h1>
-            <p>Una vista de seguimiento para conocer rápidamente el estado de cada parte del proyecto.</p>
+            <span class="state-map__eyebrow">381.46 — Nuevos ingresos</span>
+            <h1>Los últimos libros de <em>UniBook Medellín</em></h1>
+            <p>Descubre las publicaciones más recientes mientras recorren la galería.</p>
         </header>
 
-        <div class="state-stream" aria-label="Mapa de estado del proyecto">
+        <div class="state-stream" aria-label="Galería de los últimos libros ingresados">
             <div class="state-stream__glow" aria-hidden="true"></div>
             <div class="state-stream__rail state-stream__rail--left" aria-hidden="true">
-                <?php foreach ($mapaEstado as $indice => $item): ?>
+                <?php foreach ($librosGaleria as $indice => $libro): ?>
                     <div class="state-stream__ghost state-stream__ghost--<?php echo $indice; ?>" style="animation-delay: -<?php echo $indice * 3.75; ?>s;">
-                        <i class="bi <?php echo $item['icono']; ?>" aria-hidden="true"></i>
+                        <?php $imagen = trim($libro['imagen'] ?? ''); ?>
+                        <?php $archivoImagen = dirname(__DIR__) . '/' . ltrim($imagen, '/'); ?>
+                        <?php if ($imagen !== '' && is_file($archivoImagen)) { ?>
+                            <img class="state-book__image" src="<?php echo htmlspecialchars($imagen); ?>" alt="">
+                        <?php } else { ?>
+                            <div class="state-book__fallback"><i class="bi bi-book" aria-hidden="true"></i></div>
+                        <?php } ?>
+                        <span class="state-book__title"><?php echo htmlspecialchars($libro['titulo'] ?? 'Sin título'); ?></span>
                     </div>
                 <?php endforeach; ?>
             </div>
             <div class="state-stream__rail state-stream__rail--right" aria-hidden="true">
-                <?php foreach ($mapaEstado as $indice => $item): ?>
+                <?php foreach ($librosGaleria as $indice => $libro): ?>
                     <div class="state-stream__ghost state-stream__ghost--<?php echo $indice; ?>" style="animation-delay: -<?php echo $indice * 3.75; ?>s;">
-                        <i class="bi <?php echo $item['icono']; ?>" aria-hidden="true"></i>
+                        <?php $imagen = trim($libro['imagen'] ?? ''); ?>
+                        <?php $archivoImagen = dirname(__DIR__) . '/' . ltrim($imagen, '/'); ?>
+                        <?php if ($imagen !== '' && is_file($archivoImagen)) { ?>
+                            <img class="state-book__image" src="<?php echo htmlspecialchars($imagen); ?>" alt="">
+                        <?php } else { ?>
+                            <div class="state-book__fallback"><i class="bi bi-book" aria-hidden="true"></i></div>
+                        <?php } ?>
+                        <span class="state-book__title"><?php echo htmlspecialchars($libro['titulo'] ?? 'Sin título'); ?></span>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -83,6 +68,9 @@ $mapaEstado = [
     .state-stream__ghost { position:absolute; top:48%; left:50%; display:grid; width:clamp(116px,14vw,220px); height:clamp(148px,18vw,280px); place-items:center; border:1px solid rgba(255,255,255,.42); border-radius:18px; background:rgba(255,255,255,.42); box-shadow:0 18px 45px rgba(28,39,57,.1); color:#aa8750; font-size:clamp(28px,4vw,52px); backface-visibility:hidden; animation:state-corridor-right 15s linear infinite; }
     .state-stream__rail--left .state-stream__ghost { animation-name:state-corridor-left; }
     .state-stream__ghost--0 { --card-order:0; }.state-stream__ghost--1 { --card-order:1; }.state-stream__ghost--2 { --card-order:2; }.state-stream__ghost--3 { --card-order:3; }
+    .state-book__image,.state-book__fallback { width:100%; height:100%; object-fit:cover; }
+    .state-book__fallback { display:grid; place-items:center; background:linear-gradient(135deg,#172033,#5c4a2d); color:#e3c378; }
+    .state-book__title { position:absolute; right:0; bottom:0; left:0; padding:28px 12px 12px; background:linear-gradient(transparent,rgba(11,14,20,.86)); color:#fff; font:700 12px/1.25 var(--font-body,sans-serif); text-align:left; }
     @keyframes state-corridor-right { 0%{transform:translate3d(-9vw,0,-480px) scale(.2) rotateY(-14deg);opacity:0} 12%{opacity:.5} 58%{opacity:.38} 100%{transform:translate3d(48vw,0,330px) scale(1.4) rotateY(24deg);opacity:0} }
     @keyframes state-corridor-left { 0%{transform:translate3d(9vw,0,-480px) scale(.2) rotateY(14deg);opacity:0} 12%{opacity:.5} 58%{opacity:.38} 100%{transform:translate3d(-48vw,0,330px) scale(1.4) rotateY(-24deg);opacity:0} }
     @media (max-width:700px) { .state-stream{height:290px;padding:0}.state-stream__rail{height:290px}.state-stream__ghost{width:30vw;height:38vw;min-width:90px;min-height:115px;font-size:30px}.state-map{padding:55px 0 65px} }

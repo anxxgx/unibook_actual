@@ -79,9 +79,28 @@ class Libro
     {
         $sql = "SELECT *
                 FROM libros
-                ORDER BY fecha_publicacion DESC";
+                ORDER BY titulo ASC, id ASC";
 
         return $this->conexion->query($sql);
+    }
+
+
+    public function obtenerUltimosIngresados($limite = 4)
+    {
+        $limite = max(1, (int)$limite);
+
+        $sql = "SELECT *
+                FROM libros
+                ORDER BY fecha_publicacion DESC, id DESC
+                LIMIT " . $limite;
+
+        $resultado = $this->conexion->query($sql);
+
+        if (!$resultado) {
+            return [];
+        }
+
+        return $resultado->fetch_all(MYSQLI_ASSOC);
     }
 
 
@@ -363,7 +382,7 @@ class Libro
         $sql = "SELECT *
                 FROM libros
                 WHERE estado_disponibilidad IN ('vendido', 'intercambiado')
-                ORDER BY fecha_publicacion DESC";
+                ORDER BY fecha_publicacion DESC, id DESC";
 
         $resultado = $this->conexion->query($sql);
 

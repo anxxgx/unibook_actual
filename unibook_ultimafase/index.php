@@ -585,7 +585,7 @@ switch ($accion) {
         }
 
         $historial =
-            $libroController->historial();
+            $libroController->ultimosIngresados();
 
         include "views/historia.php";
 

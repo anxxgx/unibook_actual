@@ -114,6 +114,13 @@ class LibroController {
     }
 
 
+    public function ultimosIngresados(){
+
+        return $this->modelo->obtenerUltimosIngresados();
+
+    }
+
+
     public function detalle($id){
 
         return $this->modelo->obtenerPorId($id);
